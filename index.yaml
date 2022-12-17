@@ -3,6 +3,16 @@ entries:
   elf:
   - apiVersion: v2
     appVersion: 1.23.3
+    created: "2022-12-17T22:27:21.212540497Z"
+    description: A Helm chart for nginx and frontend html
+    digest: 6f87bdbd25f869804e851ef29d7ac27201130c5687a4505fb058057e5240d014
+    name: elf
+    type: application
+    urls:
+    - https://github.com/sordfish/elf/releases/download/elf-0.1.19/elf-0.1.19.tgz
+    version: 0.1.19
+  - apiVersion: v2
+    appVersion: 1.23.3
     created: "2022-12-17T21:53:13.473103665Z"
     description: A Helm chart for nginx and frontend html
     digest: d62a913379534b7c4379ec6bcb33477bb1abef37a9594c5e8bff307c040c29cc
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://github.com/sordfish/elf/releases/download/elf-0.1.16/elf-0.1.16.tgz
     version: 0.1.16
-generated: "2022-12-17T21:53:13.473113266Z"
+generated: "2022-12-17T22:27:21.212571497Z"
