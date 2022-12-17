@@ -45,21 +45,12 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
-          - name: certs
-            mountPath: "/certs"
-            readOnly: true
           - name: html
             mountPath: /usr/share/nginx/html
-          - name: config
-            mountPath: /etc/nginx/conf.d/
-            readOnly: true            
           ports:
             - name: http
               containerPort: 80
-              protocol: TCP
-            - name: https
-              containerPort: 443
-              protocol: TCP              
+              protocol: TCP        
           livenessProbe:
             httpGet:
               path: /
@@ -83,20 +74,5 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-        - name: certs
-          secret:
-            secretName: {{ .Values.image.tls.secret }}
-            items:
-            - key: tls.crt
-              path: tls.crt            
-            - key: tls.key
-              path: tls.key
         - name: html
-          emptyDir: {}              
-        - name: config
-          configMap:
-            name: {{ include "elf.fullname" . }}-configmap
-            # An array of keys from the ConfigMap to create as files
-            items:
-            - key: "default.conf"
-              path: "default.conf"
+          emptyDir: {}

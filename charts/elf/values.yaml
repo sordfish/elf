@@ -3,16 +3,10 @@
 # Declare variables to be passed into your templates.
 
 config:
-  selfsignedcert:
-    enabled: false
   html:
     url: https://raw.githubusercontent.com/sordfish/elf/main/index.html
-  websocket:
-    url: "ion-sfu"  
   js:
     url: https://raw.githubusercontent.com/sordfish/elf/main/main.js
-  fabio:
-    service: "fabio-http-service"
 
 replicaCount: 1
 
@@ -20,9 +14,7 @@ image:
   repository: nginx
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.23.1-alpine"
-  tls:
-    secret: "web-tls-secret"
+  tag: "1.23.3-alpine"
     
 
 imagePullSecrets: []

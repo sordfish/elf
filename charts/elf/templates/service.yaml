@@ -11,9 +11,5 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-    - port: {{ .Values.service.ports.https }}
-      targetPort: https
-      protocol: TCP
-      name: https  
   selector:
     {{- include "elf.selectorLabels" . | nindent 4 }}
